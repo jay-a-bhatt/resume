@@ -14,12 +14,16 @@ jobs:
       - name: Build PDF
         run: typst compile resume.typ resume.pdf
 
-      - name: Create CNAME
-        run: echo "jay-bhatt.com" > CNAME
+      - name: Prepare deploy folder
+        run: |
+          mkdir dist
+          cp resume.pdf dist/resume.pdf
+          cp index.html dist/index.html
+          echo "jay-bhatt.com" > dist/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./dist
           publish_branch: gh-pages
