@@ -14,6 +14,9 @@ jobs:
       - name: Build PDF
         run: typst compile resume.typ resume.pdf
 
+      - name: Create CNAME
+        run: echo "jay-bhatt.com" > CNAME
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
