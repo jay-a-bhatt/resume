@@ -112,8 +112,8 @@
 #bullet("Developed using Kotlin and SQL-based databases to manage tutoring sessions.")
 #bullet("Streamlined communication between tutors and students through a user-friendly interface.")
 
-#project("Movie Rental Windows Program", "Private Repo")
-#bullet("Created a WinForms application in C# that connects to an MS SQL server for movie rental management.")
+#project("F1 Lap Time Prediction", "Private Repo")
+#bullet("Implemented traditional machine learning models to predict F1 lap times.")
 
 #project("Machine Code VM Interpreter", "")
 #bullet("Developed a command line C program capable of interpreting and executing StunTel 80d201 machine code.")
