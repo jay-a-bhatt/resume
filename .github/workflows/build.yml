@@ -1,0 +1,22 @@
+name: Build and Deploy Resume
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v3
+
+      - name: Build PDF
+        run: typst compile resume.typ resume.pdf
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
