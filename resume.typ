@@ -1,127 +1,125 @@
-#set page(
-  margin: (x: 0.75in, y: 0.5in),
-  paper: "us-letter",
+#import "@preview/modernpro-cv:1.3.0": *
+#import "@preview/fontawesome:0.6.0": *
+
+#show: cv-single.with(
+  font-type: "PT Serif",
+  continue-header: "false",
+  margin: (left: 1cm, right: 1cm, top: 1cm, bottom: 1cm),
+  name: [Jay Bhatt],
+  address: [Edmonton, AB, Canada],
+  lastupdated: "true",
+  pagecount: "true",
+  date: [2025-03-25],
+  contacts: (
+    (text: [#fa-icon("location-pin") Edmonton, AB]),
+    (text: [#fa-icon("envelope") bbbaj2404\@gmail.com], link: "mailto:bbbaj2404@gmail.com"),
+    (text: [#fa-icon("github") github.com/jay-a-bhatt], link: "https://github.com/jay-a-bhatt"),
+  ),
 )
 
-#set text(
-  font: "New Computer Modern",
-  size: 11pt,
+#let sections = (
+  section-block("skills", title: "Skills")[
+    #oneline-title-item(
+      title: "Languages",
+      content: [Python, C, C\#, Rust, Kotlin, Go, Odin, Bash],
+    )
+    #oneline-title-item(
+      title: "Technologies",
+      content: [Linux/Unix, Git, Unraid, Proxmox, Docker, SQL (Microsoft, MySQL, SQLite), Jira],
+    )
+  ],
+  section-block("experience", title: "Experience")[
+    #job(
+      position: "Pharmacy Assistant",
+      institution: [Ellerslie Pharmacy],
+      location: "Edmonton, AB",
+      date: "March 2025 – Present",
+      description: [
+        - Ensured strict regulatory compliance in prescription processing, packaging, and labeling; direct experience with data accuracy and governance standards
+        - Maintained patient records in pharmacy management software while upholding data integrity and privacy requirements
+        - Identified and resolved technical risks in service computers, reducing potential data loss and operational downtime
+      ],
+    )
+    #subsectionsep
+    #job(
+      position: "Lunchtime Supervisor",
+      institution: [Jan Reimer School],
+      location: "Edmonton, AB",
+      date: "April 2022 – Present",
+      description: [
+        - Maintained safe and documented environments; escalated incidents through appropriate reporting chains
+      ],
+    )
+  ],
+  section-block("projects", title: "Projects")[
+    #twoline-item(
+      entry1: "Ancient DNA Classifier",
+      entry2: "Private Repo - In Progess",
+      description: [
+        - Built and evaluated traditional machine learning and deep learning models to classify human mitochondrial DNA as ancient or modern
+        - Implemented a suite of ML algorithms, including Logistic Regression, Random Forest, Gaussian Naive Bayes, SVM, KNN, XGBoost, and CatBoost; designed and trained a deep learning model using PyTorch
+      ],
+    )
+    #twoline-item(
+      entry1: "F1 Lap Time Prediction",
+      entry2: "Private Repo",
+      description: [
+        - Developed an end-to-end machine learning pipeline to predict Formula 1 lap times, managing feature engineering and model evaluation across the full ML lifecycle.
+      ],
+    )
+    #subsectionsep
+    #twoline-item(
+      entry1: "EmBlocks",
+      entry2: "github.com/IsaacMcCracken/EmBlocks-HackED-2026",
+      description: [
+        - Developed a block-based IDE and C-level abstraction layer for the RP2040 microcontroller, enabling simplified embedded system development through Scratch-like visual programming.
+      ],
+    )
+    #subsectionsep
+    #twoline-item(
+      entry1: "Fluid Simulation",
+      entry2: "github.com/jay-a-bhatt/Fluid-Simulation-hackED-2025",
+      description: [
+        - Developed a high-performance fluid simulation using Rust and WebGPU, implementing PIC/FLIP algorithms for realistic, real-time particle dynamics.
+        - Optimized for cross-platform web deployment using WebAssembly (WASM), featuring a responsive UI with custom controls for interactive user manipulation.
+      ],
+    )
+    #subsectionsep
+    #twoline-item(
+      entry1: "Home Server",
+      entry2: "",
+      description: [
+        - Self-host and maintain a production-grade 15+ service environment (Unraid, Proxmox, Docker), managing secure access and control
+        - Hardened infrastructure using Private Key SSH, CrowdSec IPS, and MFA-backed SSO (Authentik) to enforce strict identity-aware access control.
+      ],
+    )
+  ],
+  section-block("education", title: "Education")[
+    #education(
+      institution: [Grant MacEwan University],
+      major: [BSc Computer Science Major + Biology Minor],
+      date: "2026 Expected",
+      location: "Edmonton, AB",
+      description: [
+        - *CMPT Courses:* Software Engineering, Machine Learning, Robotics, Databases, Networking, Cryptography, Operating Systems, Human/Computer Interaction, Data Structures & Algorithms, Numerical Methods
+        - *BIOL Courses:* Eukaryotic Cell Biology, Genetics, Evolution, Ecology
+      ],
+    )
+    #subsectionsep
+    #education(
+      institution: [W.P. Wagner High School],
+      major: [High School Diploma],
+      date: "June 2021",
+      location: "Edmonton, AB",
+    )
+  ],
 )
 
-#set par(
-  justify: true,
-  leading: 0.58em,
+#let section-order = (
+  "skills",
+  "experience",
+  "projects",
+  "education",
 )
 
-#let section(title) = {
-  block(
-    width: 100%,
-    inset: (top: 1em),
-    text(
-      weight: "bold",
-      size: 13pt,
-      title
-    )
-  )
-  line(length: 100%, stroke: 0.8pt)
-}
-
-#let entry(title, subtitle, date) = {
-  block(
-    width: 100%,
-    inset: (top: 0.5em),
-    grid(
-      columns: (1fr, auto),
-      row-gutter: 0.5em,
-      text(weight: "bold", title),
-      text(style: "italic", date),
-      text(style: "italic", subtitle),
-      [],
-    )
-  )
-}
-
-#let bullet(content) = {
-  block(
-    width: 100%,
-    inset: (top: 0.1em, left: 0.5em),
-    grid(
-      columns: (0.5em, 1fr),
-      column-gutter: 0.5em,
-      "•",
-      content,
-    )
-  )
-}
-
-#let project(title, link) = {
-  block(
-    width: 100%,
-    inset: (top: 0.5em),
-    grid(
-      columns: (auto, 1fr, auto),
-      text(weight: "bold", title),
-      [],
-      link,
-    )
-  )
-}
-
-#align(center, text(size: 18pt, weight: "bold", "Jay Bhatt"))
-#align(center, text(size: 11pt, [bbbaj2404\@gmail.com | github.com/jay-a-bhatt]))
-
-#v(0.5em)
-
-// Skills section
-#section("Skills")
-*Languages:* Python, C, C\#, Rust, Kotlin \
-*Technologies:* Linux/Unix, Git, Virtualization, Docker, SQL (Microsoft, MySQL, SQLite), Jira
-
-// Experience section
-#section("Experience")
-
-#entry("Pharmacy Assistant", "Ellerslie Pharmacy - Edmonton, AB", "March 2025 - Present")
-#bullet("Processed and filled prescription orders accurately under pharmacist supervision")
-#bullet("Operated pharmacy management software to maintain patient records")
-#bullet("Packaged and labeled prescription medications following strict regulatory guidelines")
-#bullet("Restocked pharmacy shelves and rotated inventory to prevent expired medications")
-#bullet("Assisted with technical issues with service computers, reducing costly downtime")
-
-#entry("Lunchtime Supervisor", "Jan Reimer School – Edmonton, AB", "April 2022 – Present")
-#bullet("Supervised classroom activities during teacher absences, ensuring a safe and engaging environment for students")
-#bullet("Addressed behavioral issues and reported concerns to senior supervisors.")
-
-#entry("Leader in Training Volunteer", "City of Edmonton – Edmonton, AB", "May 2019 – September 2019")
-#bullet("Led activities and crafts for children, enhancing their engagement and fun.")
-#bullet("Organized and cleaned the shack, maintaining accessibility to toys and craft supplies.")
-
-#entry("Councelor In Training Volunteer", "William Lutsky Family YMCA – Edmonton, AB", "April 2016 – September 2018")
-#bullet("Accumulated 300 hours of volunteer service, focusing on summer camps for children")
-#bullet("Assisted parents with concerns and ensured all children were involved in activities.")
-
-// Projects section
-#section("Projects")
-
-#project("Fluid Simulation", "github.com/jay-a-bhatt/Fluid-Simulation-hackED-2025")
-#bullet("Developed fluid simulation using Rust and WebGPU for interactive visualization during hackED 2025.")
-#bullet("Implemented fluid dynamics with PIC/FLIP algorithm for realistic behavior.")
-#bullet("Built responsive web application with custom controls for user interaction.")
-#bullet("Utilized WebAssembly for cross-platform compatibility and performance optimization.")
-
-#project("Tutoring Android App", "Private Repo")
-#bullet("Developed using Kotlin and SQL-based databases to manage tutoring sessions.")
-#bullet("Streamlined communication between tutors and students through a user-friendly interface.")
-
-#project("F1 Lap Time Prediction", "Private Repo")
-#bullet("Implemented traditional machine learning models to predict F1 lap times.")
-
-#project("Machine Code VM Interpreter", "")
-#bullet("Developed a command line C program capable of interpreting and executing StunTel 80d201 machine code.")
-
-// Education section
-#section("Education")
-
-#entry("Grant MacEwan University – BSc Computer Science Major + Biology Minor",
-  "Relevant courses (CMPT) – Software Engineering, Databases, Networking, Operating Systems, Human/Computer Interaction, Data Structures & Algorithms, Numerical Methods, Cryptography.
-Relevant courses (BIOL) – Eukaryotic Cell Biology, Genetics, Evolution, Ecology.","2026 Expected")
-#entry("W.P. Wagner High School – High School Diploma", "", "June 2021")
+#render-sections(sections: sections, order: section-order)
