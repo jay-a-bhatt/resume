@@ -11,9 +11,9 @@
   pagecount: "true",
   date: [2025-03-25],
   contacts: (
-    (text: [#fa-icon("location-pin") Edmonton, AB]),
-    (text: [#fa-icon("envelope") bbbaj2404\@gmail.com], link: "mailto:bbbaj2404@gmail.com"),
-    (text: [#fa-icon("github") github.com/jay-a-bhatt], link: "https://github.com/jay-a-bhatt"),
+    (text: [#fa-icon("location-pin")  Edmonton, AB]),
+    (text: [#fa-icon("envelope")  bbbaj2404\@gmail.com], link: "mailto:bbbaj2404@gmail.com"),
+    (text: [#fa-icon("github")  github.com/jay-a-bhatt], link: "https://github.com/jay-a-bhatt"),
   ),
 )
 
@@ -33,7 +33,7 @@
       position: "Pharmacy Assistant",
       institution: [Ellerslie Pharmacy],
       location: "Edmonton, AB",
-      date: "March 2025 – Present",
+      date: "March 2025 - Present",
       description: [
         - Ensured strict regulatory compliance in prescription processing, packaging, and labeling; direct experience with data accuracy and governance standards
         - Maintained patient records in pharmacy management software while upholding data integrity and privacy requirements
@@ -45,19 +45,33 @@
       position: "Lunchtime Supervisor",
       institution: [Jan Reimer School],
       location: "Edmonton, AB",
-      date: "April 2022 – Present",
+      date: "April 2022 - Present",
       description: [
         - Maintained safe and documented environments; escalated incidents through appropriate reporting chains
+      ],
+    )
+  ],
+  section-block("research", title: "Research")[
+    #job(
+      position: "Undergraduate Research Assistant",
+      institution: [Grant MacEwan University],
+      location: "Edmonton, AB",
+      date: "May 2026 - Present",
+      description: [
+        - Building a normative modeling pipeline to analyze structural MRI in ALS patients from the CALSNIC dataset
+        - Applied pretrained lifespan Bayesian linear regression models to FreeSurfer cortical thickness and subcortical volume features, learning site specific offsets via adaptation to compute per region Z scores and centiles
+        - Quantified patient-vs-control deviations with Cohen's d and Welch t-tests under Benjamini-Hochberg FDR correction, and validated model calibration on held-out healthy controls
       ],
     )
   ],
   section-block("projects", title: "Projects")[
     #twoline-item(
       entry1: "Ancient DNA Classifier",
-      entry2: "Private Repo - In Progess",
+      entry2: "Private Repo",
       description: [
         - Built and evaluated traditional machine learning and deep learning models to classify human mitochondrial DNA as ancient or modern
-        - Implemented a suite of ML algorithms, including Logistic Regression, Random Forest, Gaussian Naive Bayes, SVM, KNN, XGBoost, and CatBoost; designed and trained a deep learning model using PyTorch
+        - Implemented a suite of ML algorithms, including Logistic Regression, Random Forest, Gaussian Naive Bayes, SVM, KNN, XGBoost, and CatBoost.
+        - Designed and trained a deep learning model using PyTorch
       ],
     )
     #twoline-item(
@@ -89,7 +103,7 @@
       entry1: "Home Server",
       entry2: "",
       description: [
-        - Self-host and maintain a production-grade 15+ service environment (Unraid, Proxmox, Docker), managing secure access and control
+        - Self-host and maintain a 15+ service environment (Unraid, Proxmox, Docker), managing secure access and control
         - Hardened infrastructure using Private Key SSH, CrowdSec IPS, and MFA-backed SSO (Authentik) to enforce strict identity-aware access control.
       ],
     )
@@ -117,6 +131,7 @@
 
 #let section-order = (
   "skills",
+  "research",
   "experience",
   "projects",
   "education",
