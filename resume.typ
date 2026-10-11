@@ -53,14 +53,27 @@
   ],
   section-block("research", title: "Research")[
     #job(
+      position: "Research Assistant",
+      institution: [Grant MacEwan University],
+      location: "Edmonton, AB",
+      date: "Sept 2026 - Present",
+      description: [
+        - Continuing development of the normative modeling pipeline for structural MRI in ALS patients from the CALSNIC dataset
+        - Assisting with psychology experiment pipeline automating using Python scripts
+      ],
+    )
+    #subsectionsep
+    #job(
       position: "Undergraduate Research Assistant",
       institution: [Grant MacEwan University],
       location: "Edmonton, AB",
-      date: "May 2026 - Present",
+      date: "May 2026 - Aug 2026",
       description: [
+        - Awarded an SRS grant to fund this research
         - Building a normative modeling pipeline to analyze structural MRI in ALS patients from the CALSNIC dataset
         - Applied pretrained lifespan Bayesian linear regression models to FreeSurfer cortical thickness and subcortical volume features, learning site specific offsets via adaptation to compute per region Z scores and centiles
         - Quantified patient-vs-control deviations with Cohen's d and Welch t-tests under Benjamini-Hochberg FDR correction, and validated model calibration on held-out healthy controls
+        - Won first place in the SRS presentation competition
       ],
     )
   ],
